@@ -1,4 +1,4 @@
-from pyowm.caches import nullcache
+from pyowm.caches.lrucache import LRUCache
 from pyowm.webapi25 import observationparser, observationlistparser, \
     forecastparser, weatherhistoryparser, stationparser, stationlistparser, \
     stationhistoryparser, uvindexparser, coindexparser, weathercoderegistry,\
@@ -50,7 +50,7 @@ parsers = {
 city_id_registry = cityidregistry.CityIDRegistry('cityids/%03d-%03d.txt')
 
 # Cache provider to be used
-cache = nullcache.NullCache()
+cache = LRUCache()
 
 # Default language for OWM web API queries text results
 language = 'en'
